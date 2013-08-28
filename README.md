@@ -10,7 +10,7 @@ Include jQuery and the plugin in the head or footer of your page.
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     
-    <script src="/js/plugins/estimatedReadingTime.js"></script>
+    <script src="/js/plugins/openWeather.js"></script>
 
 The only default output is the current temperature.
 
