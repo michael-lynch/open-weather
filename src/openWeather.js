@@ -1,3 +1,14 @@
+/*!
+
+Name: Open Weather
+Dependencies: jQuery, OpenWeatherMap API
+Author: Michael Lynch
+Author URL: http://michaelynch.com
+Date Created: August 28, 2013
+Licensed under the MIT license
+
+*/
+
 ;(function($) {
 
     $.fn.openWeather  = function(options) {
