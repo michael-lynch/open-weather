@@ -16,7 +16,7 @@ Include jQuery and the plugin in the head or footer of your page.
 
 The only default output is the current temperature.
 
-To display the current temperature, create an element on your page where the current temperature will display.
+To display the current temperature, create an element on your page where the current temperature will be displayed.
 
 	<div id="weather-temperature"></div>
     
