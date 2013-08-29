@@ -64,6 +64,47 @@ Licensed under the MIT license
 	       apiURL = 'http://api.openweathermap.org/data/2.5/weather?lat='+plugin.settings.lat+'&lon='+plugin.settings.lng;
         }
         
+        //format time function
+    	var formatTime = function(unixTimestamp) {
+    		
+    		//define milliseconds using unix time stamp
+    		var milliseconds = unixTimestamp * 1000;
+            
+            //create a new date using milliseconds
+            var date = new Date(milliseconds);
+    		
+    		//define hours
+    		var hours = date.getHours();
+    		
+    		//if hours are greater than 12
+    		if(hours > 12) {
+    		
+    			//calculate remaining hours in the day
+        		hoursRemaining = 24 - hours;
+        		
+        		//define hours as the reamining hours subtracted from a 12 hour day
+        		hours = 12 - hoursRemaining;
+    		}
+    		
+    		//define minutes
+    		var minutes = date.getMinutes();
+    		
+    		//convert minutes to a string
+    		minutes = minutes.toString();
+    		
+    		//if minutes has less than 2 characters
+    		if(minutes.length < 2) {
+        		
+        		//add a 0 to minutes
+        		minutes = 0 + minutes;
+    		}
+    		
+    		//construct time using hours and minutes
+    		var time = hours + ':' + minutes;
+    		
+    		return time;
+        }
+
         $.ajax({
 	        type: 'GET',
 	        url: apiURL,
@@ -235,52 +276,11 @@ Licensed under the MIT license
 		        	//set humidity
 		        	$('#'+plugin.settings.sunsetTarget).text(sunset + ' PM');
 	        	}
-	        	
-	        	//format time function
-	        	function formatTime(unixTimestamp) {
-	        		
-	        		//define milliseconds using unix time stamp
-	        		var milliseconds = unixTimestamp * 1000;
-		            
-		            //create a new date using milliseconds
-		            var date = new Date(milliseconds);
-	        		
-	        		//define hours
-	        		var hours = date.getHours();
-	        		
-	        		//if hours are greater than 12
-	        		if(hours > 12) {
-	        		
-	        			//calculate remaining hours in the day
-		        		hoursRemaining = 24 - hours;
-		        		
-		        		//define hours as the reamining hours subtracted from a 12 hour day
-		        		hours = 12 - hoursRemaining;
-	        		}
-	        		
-	        		//define minutes
-	        		var minutes = date.getMinutes();
-	        		
-	        		//convert minutes to a string
-	        		minutes = minutes.toString();
-	        		
-	        		//if minutes has less than 2 characters
-	        		if(minutes.length < 2) {
-		        		
-		        		//add a 0 to minutes
-		        		minutes = 0 + minutes;
-	        		}
-	        		
-	        		//construct time using hours and minutes
-	        		var time = hours + ':' + minutes;
-	        		
-	        		return time;
-		        }
 		        
 	        }//success
 	        
         });//ajax
-
+        
     }//fn
 
 })(jQuery);
