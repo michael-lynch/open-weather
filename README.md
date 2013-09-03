@@ -22,13 +22,13 @@ To display the current temperature, create an element on your page where the cur
     
 Initialize the plugin targeting the class, ID or element that you've created with either the 'city' option or 'lat' and 'lng' options set.
 
-	$('#weather-temperature').getWeather({
+	$('#weather-temperature').openWeather({
 		city: 'Toronto,ON'
 	});
 	
 OR
 
-	$('#weather-temperature').getWeather({
+	$('#weather-temperature').openWeather({
 		lat: 30,
 		lng: 25
 	});
@@ -60,7 +60,7 @@ To use custom icons create a directory where the icons will live and inside of t
 	
 Place your custom icons inside the "day" and "night" directories and initialize the plugin using the customIcons option.
 
-	$('#weather-temperature').getWeather({
+	$('#weather-temperature').openWeather({
 		city: 'Toronto,ON',
 		customIcons: '/img/icons/weather/'
 	});
@@ -134,7 +134,7 @@ city: "city name, country / province/ state"
 
 		$(function() {
 			
-				$('#weather-temperature').getWeather({
+				$('#weather-temperature').openWeather({
 					city: 'Toronto, ON',
 					placeTarget: 'weather-place',
 					units: 'f',
