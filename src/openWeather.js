@@ -34,7 +34,8 @@ Licensed under the MIT license
         	units: 'c',
             city: null,
             lat: null,
-            lng: null, 
+            lng: null,
+            key: null 
         }
 
         //define plugin
@@ -55,14 +56,22 @@ Licensed under the MIT license
         //if city isn't null
         if(plugin.settings.city != null) {
 	       
-	       //define API url using city
-	       apiURL = 'http://api.openweathermap.org/data/2.5/weather?q='+plugin.settings.city;
+	       //define API url using city (and remove any spaces in city)
+	       apiURL = 'http://api.openweathermap.org/data/2.5/weather?q='+plugin.settings.city.replace(' ', '');
 	       
         } else if(plugin.settings.lat != null && plugin.settings.lng != null) {
 	        
 	       //define API url using lat and lng
 	       apiURL = 'http://api.openweathermap.org/data/2.5/weather?lat='+plugin.settings.lat+'&lon='+plugin.settings.lng;
         }
+        
+        if(plugin.settings.key != null) {
+	        
+	        apiURL += '&APPID=' + plugin.settings.key;
+	        
+        }
+        
+        //apiURL = 'jabsgoab';
         
         //format time function
     	var formatTime = function(unixTimestamp) {
@@ -143,18 +152,18 @@ Licensed under the MIT license
 	        	if(plugin.settings.minTemperatureTarget != null) {
 		        	
 		        	//set minimum temperature
-		        	$('#'+plugin.settings.minTemperatureTarget).text(minTemperature);
+		        	$(plugin.settings.minTemperatureTarget).text(minTemperature);
 	        	}
 	        	
 	        	//if maxTemperatureTarget isn't null
 	        	if(plugin.settings.maxTemperatureTarget != null) {
 		        	
 		        	//set maximum temperature
-		        	$('#'+plugin.settings.maxTemperatureTarget).text(maxTemperature);
+		        	$(plugin.settings.maxTemperatureTarget).text(maxTemperature);
 	        	}
 	        		        	
 	        	//set weather description
-	        	$('#'+plugin.settings.descriptionTarget).text(data.weather[0].description);
+	        	$(plugin.settings.descriptionTarget).text(data.weather[0].description);
 	        	
 	        	//if iconTarget and default weather icon aren't null
 			    if(plugin.settings.iconTarget != null && data.weather[0].icon != null) {
@@ -234,7 +243,7 @@ Licensed under the MIT license
 		        	}
 		        	
 		        	//set iconTarget src attribute as iconURL
-			        $('#'+plugin.settings.iconTarget).attr('src', iconURL);
+			        $(plugin.settings.iconTarget).attr('src', iconURL);
 		        		
 		        }
 	        	
@@ -242,21 +251,21 @@ Licensed under the MIT license
 	        	if(plugin.settings.placeTarget != null) {
 		        	
 		        	//set humidity
-		        	$('#'+plugin.settings.placeTarget).text(data.name + ', ' + data.sys.country);
+		        	$(plugin.settings.placeTarget).text(data.name + ', ' + data.sys.country);
 	        	}
 	        	
 	        	//if windSpeedTarget isn't null
 	        	if(plugin.settings.windSpeedTarget != null) {
 		        	
 		        	//set wind speed
-		        	$('#'+plugin.settings.windSpeedTarget).text(Math.round(data.wind.speed) + ' Mph');
+		        	$(plugin.settings.windSpeedTarget).text(Math.round(data.wind.speed) + ' Mph');
 	        	}
 	        	
 	        	//if humidityTarget isn't null
 	        	if(plugin.settings.humidityTarget != null) {
 		        	
 		        	//set humidity
-		        	$('#'+plugin.settings.humidityTarget).text(data.main.humidity + '%');
+		        	$(plugin.settings.humidityTarget).text(data.main.humidity + '%');
 	        	}
 	        	
 	        	//if sunriseTarget isn't null
@@ -265,7 +274,7 @@ Licensed under the MIT license
 	        		var sunrise = formatTime(data.sys.sunrise);
 		        	
 		        	//set humidity
-		        	$('#'+plugin.settings.sunriseTarget).text(sunrise + ' AM');
+		        	$(plugin.settings.sunriseTarget).text(sunrise + ' AM');
 	        	}
 	        	
 	        	//if sunriseTarget isn't null
@@ -274,10 +283,14 @@ Licensed under the MIT license
 	        		var sunset = formatTime(data.sys.sunset);
 		        	
 		        	//set humidity
-		        	$('#'+plugin.settings.sunsetTarget).text(sunset + ' PM');
+		        	$(plugin.settings.sunsetTarget).text(sunset + ' PM');
 	        	}
 		        
-	        }//success
+	        },
+	        error: function() {
+		        
+		        alert('fail');
+	        }
 	        
         });//ajax
         

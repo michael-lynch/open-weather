@@ -51,28 +51,28 @@
 
 	<div class="weather-wrapper">
 
-		<img src="" id="weather-icon" alt="Weather Icon" />
+		<img src="" class="weather-icon" alt="Weather Icon" />
 		
 		<p><strong>Place</strong>
-		<br /><span id="weather-place"></span></p>
+		<br /><span class="weather-place"></span></p>
 		
 		<p><strong>Temperature</strong>
-		<br /><span id="weather-temperature"></span> (<span id="weather-min-temperature"></span> - <span id="weather-max-temperature"></span>)</p>
+		<br /><span class="weather-temperature"></span> (<span class="weather-min-temperature"></span> - <span class="weather-max-temperature"></span>)</p>
 		
 		<p><strong>Description</strong>
-		<br /><span id="weather-description" class="capitalize"></span></p>
+		<br /><span class="weather-description capitalize"></span></p>
 		
 		<p><strong>Humidity</strong>
-		<br /><span id="weather-humidity"></span></p>
+		<br /><span class="weather-humidity"></span></p>
 		
 		<p><strong>Wind speed</strong>
-		<br /><span id="weather-wind-speed"></span></p>
+		<br /><span class="weather-wind-speed"></span></p>
 		
 		<p><strong>Sunrise</strong>
-		<br /><span id="weather-sunrise"></span></p>
+		<br /><span class="weather-sunrise"></span></p>
 		
 		<p><strong>Sunset</strong>
-		<br /><span id="weather-sunset"></span></p>
+		<br /><span class="weather-sunset"></span></p>
 	
 	</div>
 	
@@ -90,17 +90,17 @@
 	
 		$(function() {
 		
-			$('#weather-temperature').openWeather({
+			$('.weather-temperature').openWeather({
 				city: 'Toronto, ON',
-				descriptionTarget: 'weather-description',
-				windSpeedTarget: 'weather-wind-speed',
-				minTemperatureTarget: 'weather-min-temperature',
-				maxTemperatureTarget: 'weather-max-temperature',
-				humidityTarget: 'weather-humidity',
-				sunriseTarget: 'weather-sunrise',
-				sunsetTarget: 'weather-sunset',
-				placeTarget: 'weather-place',
-				iconTarget: 'weather-icon',
+				descriptionTarget: '.weather-description',
+				windSpeedTarget: '.weather-wind-speed',
+				minTemperatureTarget: '.weather-min-temperature',
+				maxTemperatureTarget: '.weather-max-temperature',
+				humidityTarget: '.weather-humidity',
+				sunriseTarget: '.weather-sunrise',
+				sunsetTarget: '.weather-sunset',
+				placeTarget: '.weather-place',
+				iconTarget: '.weather-icon',
 				customIcons: '../src/img/icons/weather/'
 			});
 			
