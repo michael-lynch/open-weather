@@ -20,17 +20,17 @@ The only default output is the current temperature.
 
 To display the current temperature, create an element on your page where the current temperature will be displayed.
 
-	<div id="weather-temperature"></div>
+	<div class="weather-temperature"></div>
     
 Initialize the plugin targeting the class, ID or element that you've created with either the 'city' option or 'lat' and 'lng' options set.
 
-	$('#weather-temperature').openWeather({
+	$('.weather-temperature').openWeather({
 		city: 'Toronto,ON'
 	});
 	
 OR
 
-	$('#weather-temperature').openWeather({
+	$('.weather-temperature').openWeather({
 		lat: 30,
 		lng: 25
 	});
@@ -62,7 +62,7 @@ To use custom icons create a directory where the icons will live and inside of t
 	
 Place your custom icons inside the "day" and "night" directories and initialize the plugin using the customIcons option.
 
-	$('#weather-temperature').openWeather({
+	$('.weather-temperature').openWeather({
 		city: 'Toronto,ON',
 		customIcons: '/img/icons/weather/'
 	});
@@ -73,7 +73,7 @@ Place your custom icons inside the "day" and "night" directories and initialize 
 
 <ol>
 
-<li>key: "id"
+<li>key: integer
 <br />A string that defines the OpenWeatherMap API key for your application (default: null).
 </li>
 
@@ -90,44 +90,44 @@ city: "city name, country / province/ state"
 <br />An integer that defines the longitude (default: null).
 </li>
 
-<li>placeTarget: "id"
-<br />A string that defines the ID of the element that will contain the location name (default: null).
+<li>placeTarget: "id / class / element"
+<br />A string that defines the ID, class or element that will contain the location name (default: null).
 </li>
 
-<li>units: "c or f"
+<li>units: "c / f"
 <br />A string that defines the type of units (default: 'c').
 </li>
 
-<li>descriptionTarget: "id"
-<br />A string that defines the ID of the element that will contain the weather description (default: null).
+<li>descriptionTarget: "id / class / element"
+<br />A string that defines the ID, class or element that will contain the weather description (default: null).
 </li>
 
-<li>minTemperatureTarget: "id"
-<br />A string that defines the ID of the element that will contain the minimum temperature (default: null).
+<li>minTemperatureTarget: "id / class / element"
+<br />A string that defines the ID, class or element that will contain the minimum temperature (default: null).
 </li>
 
-<li>maxTemperatureTarget: "id"
-<br />A string that defines the ID of the element that will contain the maximum temperature (default: null).
+<li>maxTemperatureTarget: "id / class / element"
+<br />A string that defines the ID, class or element that will contain the maximum temperature (default: null).
 </li>
 
-<li>windSpeedTarget: "id"
-<br />A string that defines the ID of the element that will contain the wind speed (default: null).
+<li>windSpeedTarget: "id / class / element"
+<br />A string that defines the ID, class or element that will contain the wind speed (default: null).
 </li>
 
-<li>humidityTarget: "id"
-<br />A string that defines the ID of the element that will contain the humidity (default: null).
+<li>humidityTarget: "id / class / element"
+<br />A string that defines the ID, class or element that will contain the humidity (default: null).
 </li>
 
-<li>sunriseTarget: "id"
-<br />A string that defines the ID of the element that will contain the time of sunrise (default: null).
+<li>sunriseTarget: "id / class / element"
+<br />A string that defines the ID, class or element that will contain the time of sunrise (default: null).
 </li>
 
-<li>sunsetTarget: "id"
-<br />A string that defines the ID of the element that will contain the time of sunset (default: null).
+<li>sunsetTarget: "id / class / element"
+<br />A string that defines the ID, class or element that will contain the time of sunset (default: null).
 </li>
 
-<li>iconTarget: "id"
-<br />A string that defines the ID of the element that will contain the icon image (default: null).
+<li>iconTarget: "id / class / element"
+<br />A string that defines the ID, class or element that will contain the icon image (default: null).
 </li>
 
 <li>customIcons: "path"
@@ -140,18 +140,18 @@ city: "city name, country / province/ state"
 
 		$(function() {
 			
-				$('#weather-temperature').openWeather({
+				$('.weather-temperature').openWeather({
 					city: 'Toronto, ON',
-					placeTarget: 'weather-place',
+					placeTarget: '.weather-place',
 					units: 'f',
-					descriptionTarget: 'weather-description',
-					minTemperatureTarget: 'weather-min-temperature',
-					maxTemperatureTarget: 'weather-max-temperature',
-					windSpeedTarget: 'weather-wind-speed',
-					humidityTarget: 'weather-humidity',
-					sunriseTarget: 'weather-sunrise',
-					sunsetTarget: 'weather-sunset',
-					iconTarget: 'weather-icon',
+					descriptionTarget: '.weather-description',
+					minTemperatureTarget: '.weather-min-temperature',
+					maxTemperatureTarget: '.weather-max-temperature',
+					windSpeedTarget: '.weather-wind-speed',
+					humidityTarget: '.weather-humidity',
+					sunriseTarget: '.weather-sunrise',
+					sunsetTarget: '.weather-sunset',
+					iconTarget: '.weather-icon',
 					customIcons: '/img/icons/weather/'
 				});
 				
