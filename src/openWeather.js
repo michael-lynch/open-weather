@@ -35,7 +35,9 @@ Licensed under the MIT license
             city: null,
             lat: null,
             lng: null,
-            key: null 
+            key: null,
+            success: function() {},
+            error: function() {} 
         }
 
         //define plugin
@@ -70,8 +72,6 @@ Licensed under the MIT license
 	        apiURL += '&APPID=' + plugin.settings.key;
 	        
         }
-        
-        //apiURL = 'jabsgoab';
         
         //format time function
     	var formatTime = function(unixTimestamp) {
@@ -285,11 +285,15 @@ Licensed under the MIT license
 		        	//set humidity
 		        	$(plugin.settings.sunsetTarget).text(sunset + ' PM');
 	        	}
+	        	
+	        	//run success callback
+	        	plugin.settings.success.call(this);
 		        
 	        },
 	        error: function() {
 		        
-		        alert('fail');
+		        //run error callback
+		        plugin.settings.error.call(this);
 	        }
 	        
         });//ajax

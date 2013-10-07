@@ -134,6 +134,14 @@ city: "city name, country / province/ state"
 <br />A string that defines the path to the custom icons (default: null).
 </li>
 
+<li>success: function() {}
+<br />A function that runs after the plugin has successfully retrieved weather data. (default: function()).
+</li>
+
+<li>error: function() {}
+<br />A function that runs if there was an error retrieving weather data. (default: function()).
+</li>
+
 </ol>
 
 #####Example:
@@ -152,7 +160,13 @@ city: "city name, country / province/ state"
 					sunriseTarget: '.weather-sunrise',
 					sunsetTarget: '.weather-sunset',
 					iconTarget: '.weather-icon',
-					customIcons: '/img/icons/weather/'
+					customIcons: '/img/icons/weather/',
+					success: function {
+						$('.weather-temperature').show();
+					},
+					error: function {
+						console.log("These aren't the droids you're looking for.");
+					}
 				});
 				
 			});

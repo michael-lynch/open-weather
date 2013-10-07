@@ -42,6 +42,10 @@
 		.capitalize {
 			text-transform: capitalize;
 		}
+		
+		.hide {
+			display: none;
+		}
 	
 	</style>
 	
@@ -49,7 +53,7 @@
 
 <body lang="en">
 
-	<div class="weather-wrapper">
+	<div class="weather-wrapper hide">
 
 		<img src="" class="weather-icon" alt="Weather Icon" />
 		
@@ -101,7 +105,18 @@
 				sunsetTarget: '.weather-sunset',
 				placeTarget: '.weather-place',
 				iconTarget: '.weather-icon',
-				customIcons: '../src/img/icons/weather/'
+				customIcons: '../src/img/icons/weather/',
+				success: function() {
+				
+					//show weather
+					$('.weather-wrapper').show();
+					
+				},
+				error: function() {
+				
+					console.log("There was an error.");
+				
+				}
 			});
 			
 		});
