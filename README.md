@@ -161,10 +161,10 @@ city: "city name, country / province/ state"
 					sunsetTarget: '.weather-sunset',
 					iconTarget: '.weather-icon',
 					customIcons: '/img/icons/weather/',
-					success: function {
+					success: function() {
 						$('.weather-temperature').show();
 					},
-					error: function {
+					error: function() {
 						console.log("These aren't the droids you're looking for.");
 					}
 				});
