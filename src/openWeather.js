@@ -37,7 +37,7 @@ Licensed under the MIT license
             lng: null,
             key: null,
             success: function() {},
-            error: function() {} 
+            error: function(message) {} 
         }
 
         //define plugin
@@ -290,10 +290,11 @@ Licensed under the MIT license
 	        	plugin.settings.success.call(this);
 		        
 	        },
-	        error: function() {
+	        
+	        error: function(jqXHR, textStatus, errorThrown) {
 		        
 		        //run error callback
-		        plugin.settings.error.call(this);
+		        plugin.settings.error.call(this, textStatus);
 	        }
 	        
         });//ajax

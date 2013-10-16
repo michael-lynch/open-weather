@@ -139,7 +139,7 @@ city: "city name, country / province/ state"
 </li>
 
 <li>error: function() {}
-<br />A function that runs if there was an error retrieving weather data. (default: function()).
+<br />A function that runs if there was an error retrieving weather data. (default: function(message)).
 </li>
 
 </ol>
@@ -164,8 +164,8 @@ city: "city name, country / province/ state"
 					success: function() {
 						$('.weather-temperature').show();
 					},
-					error: function() {
-						console.log("These aren't the droids you're looking for.");
+					error: function(message) {
+						console.log(message);
 					}
 				});
 				
