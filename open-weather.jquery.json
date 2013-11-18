@@ -3,6 +3,7 @@
 	"title": "Open Weather",
 	"description": "A simple, lightweight jQuery plugin used to display the current weather of any city using the free OpenWeatherMap API.",
 	"keywords": [
+		"open",
 		"weather",
 		"temperature",
 		"wind",
