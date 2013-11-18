@@ -1,0 +1,28 @@
+{
+	"name": "open-weather",
+	"title": "Open Weather",
+	"description": "A simple, lightweight jQuery plugin used to display the current weather of any city using the free OpenWeatherMap API.",
+	"keywords": [
+		"weather",
+		"temperature",
+		"wind speed",
+		"humidity",
+		"sunset",
+		"sunrise",
+		"city"
+	],
+	"version": "1.0.0",
+	"author": {
+		"name": "Michael Lynch",
+		"url": "http://michaelynch.com"
+	},
+	"licenses": [
+		{
+			"type": "MIT",
+			"url": "https://raw.github.com/michael-lynch/open-weather/master/LICENSE.md"
+		}
+	],
+	"dependencies": {
+		"jquery": ">=1.8"
+	}
+}
