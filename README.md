@@ -41,17 +41,17 @@ The OpenWeatherMap API returns their own set of icons, however, if you don't wan
 
 <ol>
 
-	<li>clear.png</li>
+	<p>clear.png</p>
 	
-	<li>clouds.png</li>
+	<p>clouds.png</p>
 	
-	<li>rain.png</li>
+	<p>rain.png</p>
 	
-	<li>snow.png</li>
+	<p>snow.png</p>
 	
-	<li>storm.png</li>
+	<p>storm.png</p>
 	
-	<li>mist.png</li>
+	<p>mist.png</p>
 
 </ol>
 
@@ -67,88 +67,89 @@ Place your custom icons inside the "day" and "night" directories and initialize 
 		customIcons: '/img/icons/weather/'
 	});
 	
-<em>* Note that if you are using custom icons you must include all 12 images.
+<em>* Note that if you are using custom icons you must include all 12 images.</em>
 
 ####Options
 
-<ol>
-
-<li>key: integer
+<p><em>key: integer</em>
 <br />A string that defines the OpenWeatherMap API key for your application (default: null).
-</li>
+</p>
 
-<li>
-city: "city name, country / province/ state"
+<p><em>lang: string</em>
+<br />A string that defines the language (default: 'en').
+<br />(English - en, Russian - ru, Italian - it, Spanish - sp, Ukrainian - ua, German - de, Portuguese - pt, Romanian - ro, Polish - pl, Finnish - fi, Dutch - nl, French - fr, Bulgarian - bg, Swedish - se, Chinese Traditional - zh_tw, Chinese Simplified - zh_cn, Turkish - tr)
+</p>
+
+<p><em>city: "city name, country / province/ state"</em>
 <br />A string that defines the city (default: null).
-</li>
+</p>
 
-<li>lat: integer
+<p><em>lat: integer</em>
 <br />An integer that defines the latitude (default: null). 
-</li>
+</p>
 
-<li>lng: integer
+<p><em>lng: integer</em>
 <br />An integer that defines the longitude (default: null).
-</li>
+</p>
 
-<li>placeTarget: "id / class / element"
+<p><em>placeTarget: "id / class / element"</em>
 <br />A string that defines the ID, class or element that will contain the location name (default: null).
-</li>
+</p>
 
-<li>units: "c / f"
+<p><em>units: "c / f"</em>
 <br />A string that defines the type of units (default: 'c').
-</li>
+</p>
 
-<li>descriptionTarget: "id / class / element"
+<p><em>descriptionTarget: "id / class / element"</em>
 <br />A string that defines the ID, class or element that will contain the weather description (default: null).
-</li>
+</p>
 
-<li>minTemperatureTarget: "id / class / element"
+<p><em>minTemperatureTarget: "id / class / element"</em>
 <br />A string that defines the ID, class or element that will contain the minimum temperature (default: null).
-</li>
+</p>
 
-<li>maxTemperatureTarget: "id / class / element"
+<p><em>maxTemperatureTarget: "id / class / element"</em>
 <br />A string that defines the ID, class or element that will contain the maximum temperature (default: null).
-</li>
+</p>
 
-<li>windSpeedTarget: "id / class / element"
+<p><em>windSpeedTarget: "id / class / element"</em>
 <br />A string that defines the ID, class or element that will contain the wind speed (default: null).
-</li>
+</p>
 
-<li>humidityTarget: "id / class / element"
+<p><em>humidityTarget: "id / class / element"</em>
 <br />A string that defines the ID, class or element that will contain the humidity (default: null).
-</li>
+</p>
 
-<li>sunriseTarget: "id / class / element"
+<p><em>sunriseTarget: "id / class / element"</em>
 <br />A string that defines the ID, class or element that will contain the time of sunrise (default: null).
-</li>
+</p>
 
-<li>sunsetTarget: "id / class / element"
+<p><em>sunsetTarget: "id / class / element"</em>
 <br />A string that defines the ID, class or element that will contain the time of sunset (default: null).
-</li>
+</p>
 
-<li>iconTarget: "id / class / element"
+<p><em>iconTarget: "id / class / element"</em>
 <br />A string that defines the ID, class or element that will contain the icon image (default: null).
-</li>
+</p>
 
-<li>customIcons: "path"
+<p>customIcons: "path"</em>
 <br />A string that defines the path to the custom icons (default: null).
-</li>
+</p>
 
-<li>success: function() {}
+<p><em>success: function() {}</em>
 <br />A function that runs after the plugin has successfully retrieved weather data. (default: function()).
-</li>
+</p>
 
-<li>error: function() {}
+<p><em>error: function() {}</em>
 <br />A function that runs if there was an error retrieving weather data. (default: function(message)).
-</li>
-
-</ol>
+</p>
 
 #####Example:
 
 		$(function() {
 			
 				$('.weather-temperature').openWeather({
+					lang: 'ru',
 					city: 'Toronto, ON',
 					placeTarget: '.weather-place',
 					units: 'f',

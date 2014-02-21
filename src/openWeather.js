@@ -36,6 +36,7 @@ Licensed under the MIT license
             lat: null,
             lng: null,
             key: null,
+            lang: 'en',
             success: function() {},
             error: function(message) {} 
         }
@@ -55,21 +56,29 @@ Licensed under the MIT license
         //merge defaults and options
         plugin.settings = $.extend({}, defaults, options);
         
+        //define settings namespace
+        var s = plugin.settings;
+        
+        //define basic api endpoint
+        apiURL = 'http://api.openweathermap.org/data/2.5/weather?lang='+s.lang;
+        
         //if city isn't null
-        if(plugin.settings.city != null) {
+        if(s.city != null) {
 	       
 	       //define API url using city (and remove any spaces in city)
-	       apiURL = 'http://api.openweathermap.org/data/2.5/weather?q='+plugin.settings.city.replace(' ', '');
+	       apiURL += '&q='+s.city.replace(' ', '');
 	       
-        } else if(plugin.settings.lat != null && plugin.settings.lng != null) {
+        } else if(s.lat != null && s.lng != null) {
 	        
 	       //define API url using lat and lng
-	       apiURL = 'http://api.openweathermap.org/data/2.5/weather?lat='+plugin.settings.lat+'&lon='+plugin.settings.lng;
+	       apiURL += '&lat='+s.lat+'&lon='+s.lng;
         }
         
-        if(plugin.settings.key != null) {
+        //if api key was supplied
+        if(s.key != null) {
 	        
-	        apiURL += '&APPID=' + plugin.settings.key;
+	        //append api key paramater
+	        apiURL += '&APPID=' + s.key;
 	        
         }
         
@@ -121,7 +130,7 @@ Licensed under the MIT license
 	        success: function(data) {
 	        	
 	        	//if units are 'f'
-	        	if(plugin.settings.units == 'f') {
+	        	if(s.units == 'f') {
 	        	
 		        	//define temperature as fahrenheit
 		        	var temperature = Math.round(((data.main.temp - 273.15) * 1.8) + 32) + '°F';
@@ -149,27 +158,27 @@ Licensed under the MIT license
 	        	el.html(temperature);
 	        	
 	        	//if minTemperatureTarget isn't null
-	        	if(plugin.settings.minTemperatureTarget != null) {
+	        	if(s.minTemperatureTarget != null) {
 		        	
 		        	//set minimum temperature
-		        	$(plugin.settings.minTemperatureTarget).text(minTemperature);
+		        	$(s.minTemperatureTarget).text(minTemperature);
 	        	}
 	        	
 	        	//if maxTemperatureTarget isn't null
-	        	if(plugin.settings.maxTemperatureTarget != null) {
+	        	if(s.maxTemperatureTarget != null) {
 		        	
 		        	//set maximum temperature
-		        	$(plugin.settings.maxTemperatureTarget).text(maxTemperature);
+		        	$(s.maxTemperatureTarget).text(maxTemperature);
 	        	}
 	        		        	
 	        	//set weather description
-	        	$(plugin.settings.descriptionTarget).text(data.weather[0].description);
+	        	$(s.descriptionTarget).text(data.weather[0].description);
 	        	
 	        	//if iconTarget and default weather icon aren't null
-			    if(plugin.settings.iconTarget != null && data.weather[0].icon != null) {
+			    if(s.iconTarget != null && data.weather[0].icon != null) {
 	        	
 		        	//if customIcons isn't null
-		        	if(plugin.settings.customIcons != null) {
+		        	if(s.customIcons != null) {
 		        	
 		        		//define the default icon name
 		        		var defaultIconFileName = data.weather[0].icon;
@@ -233,7 +242,7 @@ Licensed under the MIT license
 		        		}
 		        		
 		        		//define custom icon URL
-		        		var iconURL = plugin.settings.customIcons+timeOfDay+'/'+iconName+'.png';
+		        		var iconURL = s.customIcons+timeOfDay+'/'+iconName+'.png';
 			        	
 		        	} else {
 
@@ -243,58 +252,58 @@ Licensed under the MIT license
 		        	}
 		        	
 		        	//set iconTarget src attribute as iconURL
-			        $(plugin.settings.iconTarget).attr('src', iconURL);
+			        $(s.iconTarget).attr('src', iconURL);
 		        		
 		        }
 	        	
 	        	//if placeTarget isn't null
-	        	if(plugin.settings.placeTarget != null) {
+	        	if(s.placeTarget != null) {
 		        	
 		        	//set humidity
-		        	$(plugin.settings.placeTarget).text(data.name + ', ' + data.sys.country);
+		        	$(s.placeTarget).text(data.name + ', ' + data.sys.country);
 	        	}
 	        	
 	        	//if windSpeedTarget isn't null
-	        	if(plugin.settings.windSpeedTarget != null) {
+	        	if(s.windSpeedTarget != null) {
 		        	
 		        	//set wind speed
-		        	$(plugin.settings.windSpeedTarget).text(Math.round(data.wind.speed) + ' Mph');
+		        	$(s.windSpeedTarget).text(Math.round(data.wind.speed) + ' Mph');
 	        	}
 	        	
 	        	//if humidityTarget isn't null
-	        	if(plugin.settings.humidityTarget != null) {
+	        	if(s.humidityTarget != null) {
 		        	
 		        	//set humidity
-		        	$(plugin.settings.humidityTarget).text(data.main.humidity + '%');
+		        	$(s.humidityTarget).text(data.main.humidity + '%');
 	        	}
 	        	
 	        	//if sunriseTarget isn't null
-	        	if(plugin.settings.sunriseTarget != null) {
+	        	if(s.sunriseTarget != null) {
 	        	
 	        		var sunrise = formatTime(data.sys.sunrise);
 		        	
 		        	//set humidity
-		        	$(plugin.settings.sunriseTarget).text(sunrise + ' AM');
+		        	$(s.sunriseTarget).text(sunrise + ' AM');
 	        	}
 	        	
 	        	//if sunriseTarget isn't null
-	        	if(plugin.settings.sunsetTarget != null) {
+	        	if(s.sunsetTarget != null) {
 	        	
 	        		var sunset = formatTime(data.sys.sunset);
 		        	
 		        	//set humidity
-		        	$(plugin.settings.sunsetTarget).text(sunset + ' PM');
+		        	$(s.sunsetTarget).text(sunset + ' PM');
 	        	}
 	        	
 	        	//run success callback
-	        	plugin.settings.success.call(this);
+	        	s.success.call(this);
 		        
 	        },
 	        
 	        error: function(jqXHR, textStatus, errorThrown) {
 		        
 		        //run error callback
-		        plugin.settings.error.call(this, textStatus);
+		        s.error.call(this, textStatus);
 	        }
 	        
         });//ajax
