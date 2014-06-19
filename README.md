@@ -12,28 +12,36 @@ This plugin allows you to display the location, the current temperature, the cur
 
 Include jQuery and the plugin in the head or footer of your page.
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+```html
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     
-    <script src="/js/plugins/openWeather.js"></script>
+<script src="/js/plugins/openWeather.js"></script>
+```
 
 The only default output is the current temperature.
 
 To display the current temperature, create an element on your page where the current temperature will be displayed.
 
-	<div class="weather-temperature"></div>
+```html
+<div class="weather-temperature"></div>
+```
     
 Initialize the plugin targeting the class, ID or element that you've created with either the 'city' option or 'lat' and 'lng' options set.
 
-	$('.weather-temperature').openWeather({
-		city: 'Toronto,ON'
-	});
+```js
+$('.weather-temperature').openWeather({
+	city: 'Toronto,ON'
+});
+```
 	
 OR
 
-	$('.weather-temperature').openWeather({
-		lat: 30,
-		lng: 25
-	});
+```js
+$('.weather-temperature').openWeather({
+	lat: 30,
+	lng: 25
+});
+```
 	
 ##Custom Icons
 
@@ -62,10 +70,12 @@ To use custom icons create a directory where the icons will live and inside of t
 	
 Place your custom icons inside the "day" and "night" directories and initialize the plugin using the customIcons option.
 
-	$('.weather-temperature').openWeather({
-		city: 'Toronto,ON',
-		customIcons: '/img/icons/weather/'
-	});
+```js
+$('.weather-temperature').openWeather({
+	city: 'Toronto,ON',
+	customIcons: '/img/icons/weather/'
+});
+```
 	
 <em>* Note that if you are using custom icons you must include all 12 images.</em>
 
@@ -146,28 +156,30 @@ Place your custom icons inside the "day" and "night" directories and initialize 
 
 #####Example:
 
-		$(function() {
-			
-				$('.weather-temperature').openWeather({
-					lang: 'ru',
-					city: 'Toronto, ON',
-					placeTarget: '.weather-place',
-					units: 'f',
-					descriptionTarget: '.weather-description',
-					minTemperatureTarget: '.weather-min-temperature',
-					maxTemperatureTarget: '.weather-max-temperature',
-					windSpeedTarget: '.weather-wind-speed',
-					humidityTarget: '.weather-humidity',
-					sunriseTarget: '.weather-sunrise',
-					sunsetTarget: '.weather-sunset',
-					iconTarget: '.weather-icon',
-					customIcons: '/img/icons/weather/',
-					success: function() {
-						$('.weather-temperature').show();
-					},
-					error: function(message) {
-						console.log(message);
-					}
-				});
-				
-			});
+```js
+$(function() {
+
+	$('.weather-temperature').openWeather({
+		lang: 'ru',
+		city: 'Toronto, ON',
+		placeTarget: '.weather-place',
+		units: 'f',
+		descriptionTarget: '.weather-description',
+		minTemperatureTarget: '.weather-min-temperature',
+		maxTemperatureTarget: '.weather-max-temperature',
+		windSpeedTarget: '.weather-wind-speed',
+		humidityTarget: '.weather-humidity',
+		sunriseTarget: '.weather-sunrise',
+		sunsetTarget: '.weather-sunset',
+		iconTarget: '.weather-icon',
+		customIcons: '/img/icons/weather/',
+		success: function() {
+			$('.weather-temperature').show();
+		},
+		error: function(message) {
+			console.log(message);
+		}
+	});
+	
+});
+```
