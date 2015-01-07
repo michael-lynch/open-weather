@@ -267,7 +267,7 @@ Licensed under the MIT license
 	        	if(s.windSpeedTarget != null) {
 		        	
 		        	//set wind speed
-		        	$(s.windSpeedTarget).text(Math.round(data.wind.speed) + ' Mph');
+		        	$(s.windSpeedTarget).text(Math.round(data.wind.speed) + ' Mps');
 	        	}
 	        	
 	        	//if humidityTarget isn't null
