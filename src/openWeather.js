@@ -78,7 +78,7 @@ Licensed under the MIT license
         if(s.key != null) {
 	        
 	        //append api key paramater
-	        apiURL += '&APPID=' + s.key;
+	        apiURL += '&appid=' + s.key;
 	        
         }
         
