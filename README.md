@@ -30,7 +30,7 @@ Initialize the plugin targeting the class, ID or element that you've created wit
 
 ```js
 $('.weather-temperature').openWeather({
-	city: 'Toronto,ON'
+	city: 'Toronto'
 });
 ```
 
@@ -47,21 +47,14 @@ $('.weather-temperature').openWeather({
 
 The OpenWeatherMap API returns their own set of icons, however, if you don't want to use them, the plugin also allows you to use 6 custom icons for both day and night, so 12 in total. Custom icons must be named as follows:
 
-<ol>
-
-	<p>clear.png</p>
-
-	<p>clouds.png</p>
-
-	<p>rain.png</p>
-
-	<p>snow.png</p>
-
-	<p>storm.png</p>
-
-	<p>mist.png</p>
-
-</ol>
+<ul>
+	<li>clear.png</li>
+	<li>clouds.png</li>
+	<li>rain.png</li>
+	<li>snow.png</li>
+	<li>storm.png</li>
+	<li>mist.png</li>
+</ul>
 
 To use custom icons create a directory where the icons will live and inside of that directory create two more directories, "day" and "night."
 
@@ -72,7 +65,7 @@ Place your custom icons inside the "day" and "night" directories and initialize 
 
 ```js
 $('.weather-temperature').openWeather({
-	city: 'Toronto,ON',
+	city: 'Toronto',
 	customIcons: '/img/icons/weather/'
 });
 ```
@@ -161,7 +154,7 @@ $(function() {
 
 	$('.weather-temperature').openWeather({
 		lang: 'ru',
-		city: 'Toronto, ON',
+		city: 'Los Angeles',
 		placeTarget: '.weather-place',
 		units: 'f',
 		descriptionTarget: '.weather-description',
