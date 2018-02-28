@@ -1,0 +1,15 @@
+{
+	"name": "open-weather",
+	"version": "2.0.0",
+	"homepage": "https://github.com/michael-lynch/open-weather",
+	"author": "Michael Lynch <mikethomaslynch@gmail.com>",
+	"description": "A simple, lightweight jQuery plugin used to display the current weather of any city using the free OpenWeatherMap API",
+	"main": "build/openweather.min.js",
+	"license": "MIT",
+	"keywords": [
+		"reading",
+		"time",
+		"estimated",
+		"eta"
+	]
+}

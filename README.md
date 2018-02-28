@@ -1,20 +1,20 @@
-#Open Weather
+# Open Weather
 
 A simple, lightweight jQuery plugin used to display the current weather of any city using the free <a href="http://openweathermap.org/api" target="_blank">OpenWeatherMap API</a>.
 
 This plugin allows you to display the location, the current temperature, the current low temperature, the current high temperature, a description of the current weather, a weather icon, the humidity level, the wind speed, the time the sun will rise, and the time the sun will set.
 
-<strong>An API key is not required but it is reccomended. <a href="http://openweathermap.org/login">Register here</a> to obtain an OpenWeatherMap API key for your application.</strong>
+<strong>An API key is not required but it is reccomended. <a href="http://openweathermap.org/login">Register</a> your application to obtain an OpenWeatherMap API key.</strong>
 
 <a href="http://michael-lynch.github.io/open-weather/" target="_blank">See demo</a>
 
-##Instructions
+## Instructions
 
 Include jQuery and the plugin in the head or footer of your page.
 
 ```html
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-    
+
 <script src="/js/plugins/openWeather.js"></script>
 ```
 
@@ -25,7 +25,7 @@ To display the current temperature, create an element on your page where the cur
 ```html
 <div class="weather-temperature"></div>
 ```
-    
+
 Initialize the plugin targeting the class, ID or element that you've created with either the 'city' option or 'lat' and 'lng' options set.
 
 ```js
@@ -33,7 +33,7 @@ $('.weather-temperature').openWeather({
 	city: 'Toronto,ON'
 });
 ```
-	
+
 OR
 
 ```js
@@ -42,23 +42,23 @@ $('.weather-temperature').openWeather({
 	lng: 25
 });
 ```
-	
-##Custom Icons
+
+## Custom Icons
 
 The OpenWeatherMap API returns their own set of icons, however, if you don't want to use them, the plugin also allows you to use 6 custom icons for both day and night, so 12 in total. Custom icons must be named as follows:
 
 <ol>
 
 	<p>clear.png</p>
-	
+
 	<p>clouds.png</p>
-	
+
 	<p>rain.png</p>
-	
+
 	<p>snow.png</p>
-	
+
 	<p>storm.png</p>
-	
+
 	<p>mist.png</p>
 
 </ol>
@@ -67,7 +67,7 @@ To use custom icons create a directory where the icons will live and inside of t
 
 	/img/icons/weather/day/
 	/img/icons/weather/night/
-	
+
 Place your custom icons inside the "day" and "night" directories and initialize the plugin using the customIcons option.
 
 ```js
@@ -76,10 +76,10 @@ $('.weather-temperature').openWeather({
 	customIcons: '/img/icons/weather/'
 });
 ```
-	
+
 <em>* Note that if you are using custom icons you must include all 12 images.</em>
 
-####Options
+#### Options
 
 <p><em>key: integer</em>
 <br />A string that defines the OpenWeatherMap API key for your application (default: null).
@@ -95,7 +95,7 @@ $('.weather-temperature').openWeather({
 </p>
 
 <p><em>lat: integer</em>
-<br />An integer that defines the latitude (default: null). 
+<br />An integer that defines the latitude (default: null).
 </p>
 
 <p><em>lng: integer</em>
@@ -154,7 +154,7 @@ $('.weather-temperature').openWeather({
 <br />A function that runs if there was an error retrieving weather data. (default: function(message)).
 </p>
 
-#####Example:
+##### Example:
 
 ```js
 $(function() {
@@ -180,6 +180,6 @@ $(function() {
 			console.log(message);
 		}
 	});
-	
+
 });
 ```
