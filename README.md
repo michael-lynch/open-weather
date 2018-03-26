@@ -119,6 +119,10 @@ $('.weather-temperature').openWeather({
 <br />A string that defines the ID, class or element that will contain the wind speed (default: null).
 </p>
 
+<p><em>windSpeedUnit: "Mps / km/h"</em>
+<br />A string that defines the type of units for windspeed. (default: 'Mps').
+</p>
+
 <p><em>humidityTarget: "id / class / element"</em>
 <br />A string that defines the ID, class or element that will contain the humidity (default: null).
 </p>
