@@ -1,3 +1,4 @@
+
 # Open Weather
 
 A simple, lightweight jQuery plugin used to display the current weather of any city using the free <a href="http://openweathermap.org/api" target="_blank">OpenWeatherMap API</a>.
@@ -161,6 +162,7 @@ $(function() {
 		city: 'Los Angeles',
 		placeTarget: '.weather-place',
 		units: 'f',
+		windSpeedUnit: 'Mps',
 		descriptionTarget: '.weather-description',
 		minTemperatureTarget: '.weather-min-temperature',
 		maxTemperatureTarget: '.weather-max-temperature',
