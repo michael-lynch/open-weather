@@ -120,7 +120,7 @@ $('.weather-temperature').openWeather({
 </p>
 
 <p><em>windSpeedUnit: "Mps / km/h"</em>
-<br />A string that defines the type of units for windspeed. (default: 'Mps').
+<br />A string that defines the type of unit for windspeed. (default: 'Mps').
 </p>
 
 <p><em>humidityTarget: "id / class / element"</em>
