@@ -21,6 +21,7 @@ Licensed under the MIT license
 
 		// define default parameters
 		const defaults = {
+			wrapperTarget: null,
 			descriptionTarget: null,
 			maxTemperatureTarget: null,
 			minTemperatureTarget: null,
@@ -256,6 +257,9 @@ Licensed under the MIT license
 
 							// define custom icon URL
 							iconURL = `${s.customIcons}${timeOfDay}/${iconName}.png`;
+
+							// append class modifier to wrapper
+							$(s.wrapperTarget).addClass(timeOfDay);
 
 						} else {
 
