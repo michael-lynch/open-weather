@@ -21,6 +21,7 @@ Licensed under the MIT license
 
 		// define default parameters
 		const defaults = {
+			wrapperTarget: null,
 			descriptionTarget: null,
 			maxTemperatureTarget: null,
 			minTemperatureTarget: null,
@@ -32,6 +33,7 @@ Licensed under the MIT license
 			iconTarget: null,
 			customIcons: null,
 			units: 'c',
+			windSpeedUnit: 'Mps',
 			city: null,
 			lat: null,
 			lng: null,
@@ -105,6 +107,7 @@ Licensed under the MIT license
 		let temperature;
 		let minTemperature;
 		let maxTemperature;
+		let windSpeed;
 
 		// if city isn't null
 		if(s.city != null) {
@@ -157,6 +160,9 @@ Licensed under the MIT license
 						maxTemperature = Math.round(data.main.temp_max - 273.15) + '°C';
 					}
 
+					// if windSpeedUnit is km/h
+					windSpeed = (s.windSpeedUnit == 'km/h') ? data.wind.speed*3.6 : data.wind.speed;
+
 					weatherObj = {
 						city: `${data.name}, ${data.sys.country}`,
 						temperature: {
@@ -166,7 +172,7 @@ Licensed under the MIT license
 							units: s.units.toUpperCase()
 						},
 						description: data.weather[0].description,
-						windspeed: `${Math.round(data.wind.speed)} Mps`,
+						windspeed: `${Math.round(windSpeed)} ${ s.windSpeedUnit }`,
 						humidity: `${data.main.humidity}%`,
 						sunrise: `${formatTime(data.sys.sunrise)} AM`,
 						sunset: `${formatTime(data.sys.sunset)} PM`
@@ -252,10 +258,13 @@ Licensed under the MIT license
 							// define custom icon URL
 							iconURL = `${s.customIcons}${timeOfDay}/${iconName}.png`;
 
+							// append class modifier to wrapper
+							$(s.wrapperTarget).addClass(timeOfDay);
+
 						} else {
 
 							// define icon URL using default icon
-							iconURL = `http://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+							iconURL = `//openweathermap.org/img/w/${data.weather[0].icon}.png`;
 						}
 
 						// set iconTarget src attribute as iconURL
